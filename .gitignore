@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Builds and coverage
+dist/
+coverage/
+
+# Environment variables and credentials
+.env
+.env.*
+!.env.example
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local tooling
+.vercel/
+*.local
