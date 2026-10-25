@@ -58,7 +58,7 @@ La primera entrega no pretende resolver todo el ciclo operativo de un refugio. E
 | Entrega | 26 de octubre de 2026, 6:00 p. m., hora de Colombia |
 | Tipo de producto | Aplicación web SPA con backend administrado planificado |
 | Repositorio | Público, administrado mediante GitHub Flow |
-| Estado | Base inicial en construcción y verificación |
+| Estado | Base inicial ejecutable; cierre académico documentado y en verificación |
 
 ## Problema, justificación y objetivos
 
@@ -149,7 +149,7 @@ Los nombres, perfiles e imágenes mostrados en la interfaz son datos demostrativ
 | Prisma ORM 7 | Modelo y acceso desde servidor futuro | Esquema preparado, sin migración |
 | Google Stitch | Prototipo visual | Enlace y cuatro capturas originales disponibles; detalle de mascota pendiente |
 | Vercel | Hosting de la SPA | Reescritura configurada; despliegue pendiente |
-| GitHub | Código, Issues, PR, Project y CI | Configuración en curso |
+| GitHub | Código, Issues, PR, Project y CI | Implementado y verificado |
 | Mermaid | Diagramas técnicos versionables | Implementado en este README |
 
 ### Justificación de las tres herramientas TIC
@@ -338,21 +338,25 @@ erDiagram
 
 ### Operaciones de datos
 
-| Estado | Método | Contrato | Descripción | Vista |
-|---|---|---|---|---|
-| Supabase, pendiente | `GET` | `/rest/v1/pets?status=eq.AVAILABLE` | Listar mascotas publicadas | Inicio, Catálogo |
-| Supabase, pendiente | `GET` | `/rest/v1/pets?id=eq.{id}&select=*,shelter:shelters(*)` | Consultar una mascota y refugio | Detalle |
-| Supabase, pendiente | `GET` | `/rest/v1/shelters?id=eq.{id}` | Consultar organización | Detalle |
-| Supabase + RLS, pendiente | `GET/PATCH` | `/rest/v1/profiles?id=eq.{auth.uid}` | Consultar o editar perfil propio | Perfil futuro |
-| Supabase + RLS, pendiente | `POST` | `/rest/v1/adoption_requests` | Crear solicitud propia | Detalle futuro |
-| Supabase + RLS, pendiente | `GET` | `/rest/v1/adoption_requests?applicant_id=eq.{auth.uid}` | Consultar solicitudes propias | Seguimiento futuro |
-| API propia, planificada | `POST` | `/api/adoption-requests/{id}/transition` | Validar transición de estado en servidor | Panel de refugio futuro |
+| Estado | Método | Contrato | Datos principales | Descripción | Vista |
+|---|---|---|---|---|---|
+| Supabase, pendiente | `GET` | `/rest/v1/pets?status=eq.AVAILABLE` | Filtros por especie, ciudad o edad; respuesta con perfil resumido y `shelter_id` | Listar mascotas publicadas | Inicio, Catálogo |
+| Supabase, pendiente | `GET` | `/rest/v1/pets?id=eq.{id}&select=*,shelter:shelters(*)` | `id` de mascota; respuesta con características y refugio público | Consultar una mascota y su refugio | Detalle |
+| Supabase, pendiente | `GET` | `/rest/v1/shelters?id=eq.{id}` | `id`; respuesta con nombre, ciudad, descripción y contacto autorizado | Consultar organización | Detalle |
+| Supabase + RLS, pendiente | `GET/PATCH` | `/rest/v1/profiles?id=eq.{auth.uid}` | `auth.uid`; nombre, teléfono y ciudad del perfil propio | Consultar o editar perfil autorizado | Perfil futuro |
+| Supabase + RLS, pendiente | `POST` | `/rest/v1/adoption_requests` | `pet_id`, mensaje, vivienda y otras mascotas; respuesta con `id`, estado y fecha | Crear solicitud propia | Detalle futuro |
+| Supabase + RLS, pendiente | `GET` | `/rest/v1/adoption_requests?applicant_id=eq.{auth.uid}` | `auth.uid`; respuesta con mascota, estado y fechas | Consultar solicitudes propias | Seguimiento futuro |
+| API propia, planificada | `POST` | `/api/adoption-requests/{id}/transition` | `id` y nuevo estado permitido; respuesta con transición validada | Aplicar reglas transaccionales en servidor | Panel de refugio futuro |
 
 Los filtros del catálogo actual se ejecutan en memoria y no realizan solicitudes HTTP.
 
 ## Diseño y prototipos
 
 **Prototipo interactivo:** [Adopme en Google Stitch](https://stitch.withgoogle.com/preview/5253726196803477313?node-id=7a2c06889ff04ac1b8823a52d7e9267c)
+
+### Identidad visual
+
+La identidad de Adopme combina fondos claros, azul oscuro como color estructural, acentos cálidos, tarjetas redondeadas y fotografía de mascotas. Esta jerarquía busca transmitir confianza, cercanía y claridad sin trivializar la responsabilidad de adoptar. Las capturas de Stitch son la referencia visual original; la interfaz React es una implementación funcional inicial y no se presenta como una reproducción exacta del prototipo.
 
 > [!NOTE]
 > Las siguientes cuatro capturas provienen del diseño original de Google Stitch. **Proceso de adopción** y **Compromiso con la adopción** son secciones del diseño, no vistas independientes de detalle. La captura específica de la tercera vista —Detalle de mascota y adopción— continúa pendiente.
@@ -417,7 +421,7 @@ La sección refuerza la adopción como una decisión de largo plazo e incorpora 
 | Acciones | Volver al catálogo; la solicitud aparece deshabilitada y rotulada como futura |
 | Destino | Catálogo o formulario futuro de solicitud |
 | Datos previstos | `pets`, `shelters` y `adoption_requests` |
-| Estado | Ruta `/mascotas/:petId` implementada; creación de solicitud pendiente |
+| Estado | Ruta `/mascotas/:petId` implementada como evidencia local; creación de solicitud pendiente |
 
 > [!WARNING]
 > La captura original específica de esta vista todavía no está disponible en el repositorio. Las figuras 3 y 4 documentan secciones complementarias del diseño y no se presentan como sustitutos del detalle de mascota.
@@ -449,7 +453,8 @@ web-design-adopme/
 ├── prisma/
 │   └── schema.prisma            # Modelo PostgreSQL; no contiene credenciales
 ├── public/images/
-│   └── adopme-mark.svg          # Marca provisional de la implementación
+│   ├── adopme-mark.svg          # Marca provisional de la implementación
+│   └── prototipos/             # Cuatro capturas originales de Google Stitch
 ├── src/
 │   ├── app/                     # Enrutamiento
 │   ├── components/              # Layout y UI reutilizable
@@ -478,7 +483,7 @@ No se conservan carpetas vacías. La salida generada por Prisma se creará en `s
 - Git 2.40 o superior.
 - Node.js 22.12 o superior; Node.js 24 es la versión usada por CI.
 - npm incluido con Node.js.
-- Credenciales de Supabase únicamente para validar la integración remota.
+- No se requieren credenciales para ejecutar la versión demostrativa de esta entrega.
 
 ### Instalación
 
@@ -561,7 +566,7 @@ El último comando se documenta, pero **no se ha ejecutado**: crea una migració
 1. Importar `JuanEstebanLT/web-design-adopme` en Vercel.
 2. Confirmar preset Vite y directorio `dist`.
 3. Registrar variables por ambiente sin copiarlas al repositorio.
-4. desplegar desde `main` después de que CI sea satisfactorio.
+4. Desplegar desde `main` después de que CI sea satisfactorio.
 5. Verificar `/`, `/mascotas` y una ruta de detalle mediante acceso directo.
 
 No se publica una URL de producción hasta que Vercel devuelva y se compruebe una URL real.
@@ -646,7 +651,7 @@ Cada PR debe incluir resumen, Issue relacionado, cambios, evidencias, pruebas y 
 - Prioridades: `priority:critical`, `priority:high`, `priority:medium`, `priority:low`.
 - Áreas: `area:frontend`, `area:backend`, `area:database`, `area:architecture`, `area:design`, `area:devops`, `area:github`.
 - Milestones: Inicialización y entrega académica; Fundamentos de frontend; Integración backend; Funcionalidades de adopción; Validación y despliegue.
-- Project: [**Adopme — Desarrollo y seguimiento**](https://github.com/users/JuanEstebanLT/projects/7), con `Backlog`, `Todo`, `In Progress`, `In Review` y `Done`, además de los campos `Tipo` y `Prioridad`. Milestone y responsable utilizan los campos nativos de GitHub; los responsables permanecen vacíos.
+- Project: [**Adopme — Desarrollo y seguimiento**](https://github.com/users/JuanEstebanLT/projects/7), con `Backlog`, `Todo`, `In Progress`, `In Review` y `Done`, además de los campos `Tipo` y `Prioridad`. Incluye las 23 historias/tareas iniciales y los Issues de mantenimiento #25 y #27. Milestone y responsable utilizan los campos nativos de GitHub; los responsables permanecen vacíos.
 
 No se asignan Issues mientras los demás integrantes no sean colaboradores del repositorio.
 
@@ -675,9 +680,9 @@ Las responsabilidades concretas se definirán después de incorporar colaborador
 | Prisma | Configurado | Esquema sin migraciones aplicadas |
 | Stitch | Parcial | Cuatro secciones originales versionadas; captura específica de Detalle pendiente |
 | Vercel | Configurado | Publicación pendiente |
-| GitHub Actions | Implementado y verificado | [Workflow #1 satisfactorio](https://github.com/JuanEstebanLT/web-design-adopme/actions/runs/40151119079) |
-| GitHub Project | Implementado | [Project #7](https://github.com/users/JuanEstebanLT/projects/7) con 23 Issues iniciales |
-| GitHub Flow inicial | Implementado y verificado | [PR #24](https://github.com/JuanEstebanLT/web-design-adopme/pull/24) fusionado tras CI |
+| GitHub Actions | Implementado y verificado | [Workflow de validación](https://github.com/JuanEstebanLT/web-design-adopme/actions/workflows/ci.yml) |
+| GitHub Project | Implementado | [Project #7](https://github.com/users/JuanEstebanLT/projects/7) con 25 Issues trazables |
+| GitHub Flow | Implementado y verificado | [Pull requests](https://github.com/JuanEstebanLT/web-design-adopme/pulls?q=is%3Apr) integrados tras CI |
 | Protección de `main` | Implementada y verificada | PR y check `validate` obligatorios; sin force-push ni eliminación |
 | Video grupal | Pendiente | No grabado ni publicado |
 
@@ -693,20 +698,38 @@ Solo la primera etapa tiene fecha académica definida. No se inventan fechas par
 
 ## Evidencias académicas
 
-La lista de comprobación y el guion sugerido se encuentran en [`docs/evidencias/README.md`](docs/evidencias/README.md).
+La matriz detallada, el inventario de pruebas y el guion del video se encuentran en [`docs/evidencias/README.md`](docs/evidencias/README.md). La guía académica original no está versionada en el repositorio; esta auditoría se basa en los 28 requisitos suministrados para el taller.
 
-| Requisito académico | Evidencia en el repositorio |
-|---|---|
-| Proyecto, problema, objetivos y alcance | Secciones iniciales de este README |
-| Framework y herramientas TIC | Selección y justificación técnica |
-| API y cuatro recursos | Tabla de contratos y estados reales |
-| Tres vistas | Rutas React y sección de diseño |
-| Modelo ER | Diagrama Mermaid y esquema Prisma |
-| Arquitectura | Diagrama Mermaid y ADR |
-| Navegación | Diagrama Mermaid y React Router |
-| Repositorio y colaboración | Issues, plantillas, milestones y flujo |
-| Código ejecutable | Scripts `dev`, `lint`, `build` y CI |
-| Video de máximo cinco minutos | Guion preparado; grabación pendiente |
+| # | Requisito académico | Estado | Evidencia principal |
+|---:|---|---|---|
+| 1 | Definición del proyecto | Cumplido | Descripción y contexto académico |
+| 2 | Problemática | Cumplido | Sección Problemática |
+| 3 | Justificación | Cumplido | Sección Justificación |
+| 4 | Objetivo general | Cumplido | Objetivo general |
+| 5 | Objetivos específicos | Cumplido | Cinco objetivos verificables |
+| 6 | Público objetivo | Cumplido | Tabla de actores |
+| 7 | Alcance inicial | Cumplido | Alcance de la primera entrega |
+| 8 | Funcionalidades previstas | Cumplido | Alcance funcional y backlog |
+| 9 | Framework seleccionado y justificado | Cumplido | React + Vite y justificación |
+| 10 | Tres herramientas TIC | Cumplido | Stitch, Supabase y Prisma |
+| 11 | Arquitectura técnica | Cumplido | Principios, componentes y ADR |
+| 12 | Diagrama de arquitectura | Cumplido | Mermaid de integración |
+| 13 | Modelo de datos | Cumplido | Entidades y restricciones |
+| 14 | Diagrama entidad-relación | Cumplido | Mermaid ER |
+| 15 | Mínimo cuatro entidades/recursos | Cumplido | Perfil, Refugio, Mascota y Solicitud |
+| 16 | API y operaciones previstas | Cumplido | Contratos, métodos y datos |
+| 17 | Tres vistas principales | Parcial | Tres rutas React; falta captura Stitch específica de Detalle |
+| 18 | Prototipos y evidencias gráficas | Parcial | Cuatro capturas originales; Detalle pendiente |
+| 19 | Flujo de navegación | Cumplido | Mermaid y React Router |
+| 20 | Estructura inicial del código | Cumplido | Árbol modular real |
+| 21 | React + Vite ejecutable | Cumplido | Scripts locales y CI |
+| 22 | Dependencias y configuración | Cumplido | `package-lock.json`, `.env.example` y configuración |
+| 23 | Repositorio público | Cumplido | Repositorio GitHub |
+| 24 | README profesional | Cumplido | Documento principal y referencias |
+| 25 | GitHub Flow | Cumplido | Issues, ramas, PR y validaciones |
+| 26 | Ramas y pull requests | Cumplido | Historial real de PR |
+| 27 | Organización colaborativa | Cumplido | Project, labels y milestones; sin asignaciones |
+| 28 | Evidencias para video grupal | Parcial | Matriz y guion listos; video no grabado |
 
 ## Enlaces y referencias
 
