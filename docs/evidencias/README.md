@@ -31,7 +31,7 @@ Este documento registra el estado verificable de la primera entrega del **Taller
 | 23 | Repositorio público | Cumplido | Repositorio accesible | [JuanEstebanLT/web-design-adopme](https://github.com/JuanEstebanLT/web-design-adopme) | Rama principal `main` |
 | 24 | README profesional | Cumplido | Documento académico integral | [`README.md`](../../README.md) | Incluye referencias técnicas APA 7 |
 | 25 | GitHub Flow | Cumplido | Issue, rama, commit, PR, CI y merge | [Pull requests](https://github.com/JuanEstebanLT/web-design-adopme/pulls?q=is%3Apr) | `main` no recibe desarrollo directo |
-| 26 | Ramas y pull requests | Cumplido | Historial de PR y ramas temáticas | [PR #24](https://github.com/JuanEstebanLT/web-design-adopme/pull/24), [PR #29](https://github.com/JuanEstebanLT/web-design-adopme/pull/29) | PR anteriores fusionados tras validación |
+| 26 | Ramas y pull requests | Cumplido | Historial de PR y ramas temáticas | [PR #24](https://github.com/JuanEstebanLT/web-design-adopme/pull/24), [PR #29](https://github.com/JuanEstebanLT/web-design-adopme/pull/29), [PR #30](https://github.com/JuanEstebanLT/web-design-adopme/pull/30) | PR fusionados tras validación |
 | 27 | Organización colaborativa | Cumplido | Issues, labels, milestones y Project | [Project #7](https://github.com/users/JuanEstebanLT/projects/7) | Sin responsables mientras no haya colaboradores |
 | 28 | Evidencias para video grupal | Parcial | Matriz, recorrido y guion disponibles | [Guion](#guion-del-video-grupal-máximo-cinco-minutos) | La grabación grupal no se ha realizado |
 
@@ -44,6 +44,7 @@ Este documento registra el estado verificable de la primera entrega del **Taller
 | Modelo relacional y separación de Auth | Verificado | [`schema.prisma`](../../prisma/schema.prisma) y README |
 | Project con estados, Tipo y Prioridad | Verificado | [Project #7](https://github.com/users/JuanEstebanLT/projects/7) |
 | Protección de `main` | Verificada por API | PR y check `validate` obligatorios; force-push y eliminación bloqueados |
+| CI de `main` | Verificada | [Historial del workflow](https://github.com/JuanEstebanLT/web-design-adopme/actions/workflows/ci.yml) |
 | Asignaciones | Verificado | Los Issues continúan sin responsable |
 | Video grupal | Pendiente | Debe ser grabado por los cuatro integrantes |
 
@@ -60,7 +61,7 @@ Este documento registra el estado verificable de la primera entrega del **Taller
 | Imágenes de Stitch | Correcto: cuatro firmas PNG válidas; dimensiones entre 940×754 y 982×775 px |
 | Archivos de entorno | Correcto: no existe un `.env` real versionado; `.env.example` solo contiene marcadores |
 
-La integración continua del pull request de cierre se documentará mediante el resultado real de GitHub Actions; no se anticipa como aprobada antes de su ejecución.
+El [PR #30](https://github.com/JuanEstebanLT/web-design-adopme/pull/30) superó el check obligatorio `validate` y fue fusionado. El workflow disparado sobre `main` también finalizó correctamente; ambas verificaciones se registran mediante sus resultados reales de GitHub Actions.
 
 ## Trabajo no exigido en esta fase
 
