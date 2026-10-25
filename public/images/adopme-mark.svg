@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">Marca provisional de Adopme</title>
+  <desc id="desc">Una huella blanca sobre un círculo color terracota.</desc>
+  <circle cx="80" cy="80" r="76" fill="#db6848"/>
+  <ellipse cx="80" cy="96" rx="34" ry="28" fill="#fffaf2"/>
+  <circle cx="45" cy="61" r="14" fill="#fffaf2"/>
+  <circle cx="72" cy="45" r="14" fill="#fffaf2"/>
+  <circle cx="100" cy="45" r="14" fill="#fffaf2"/>
+  <circle cx="123" cy="66" r="14" fill="#fffaf2"/>
+</svg>

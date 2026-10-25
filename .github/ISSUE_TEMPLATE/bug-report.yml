@@ -1,0 +1,39 @@
+name: Error
+description: Informar un comportamiento reproducible que no coincide con lo esperado.
+title: "Bug: "
+labels: ["type:bug"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Descripción del error
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Pasos para reproducir
+      placeholder: |
+        1. Ir a...
+        2. Ejecutar...
+        3. Observar...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Resultado esperado
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidencia y entorno
+      description: Incluye navegador, sistema, registros o capturas sin datos sensibles.
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Prioridad
+      options: [Crítica, Alta, Media, Baja]
+    validations:
+      required: true
