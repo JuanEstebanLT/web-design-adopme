@@ -1,0 +1,55 @@
+name: Historia de usuario
+description: Registrar una necesidad funcional desde la perspectiva de un actor.
+title: "HU-XX: "
+labels: ["type:feature"]
+body:
+  - type: input
+    id: functional-id
+    attributes:
+      label: Identificador funcional
+      placeholder: HU-XX
+    validations:
+      required: true
+  - type: textarea
+    id: story
+    attributes:
+      label: Historia
+      description: Usa la estructura Como / quiero / para.
+      value: |
+        **Como** [tipo de usuario],
+        **quiero** [funcionalidad],
+        **para** [beneficio].
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Criterios de aceptación
+      placeholder: "- [ ] Dado... cuando... entonces..."
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Prioridad
+      options: [Crítica, Alta, Media, Baja]
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Alcance y exclusiones
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencias y relaciones
+      description: Referencia otros issues si existen; no inventes números.
+  - type: dropdown
+    id: status
+    attributes:
+      label: Estado inicial
+      options: [Backlog, Todo]
+    validations:
+      required: true

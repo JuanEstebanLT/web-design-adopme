@@ -4,6 +4,7 @@ node_modules/
 # Builds and coverage
 dist/
 coverage/
+server/generated/
 
 # Environment variables and credentials
 .env

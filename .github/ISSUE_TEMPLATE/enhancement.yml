@@ -1,0 +1,30 @@
+name: Mejora
+description: Proponer una mejora acotada a una capacidad existente.
+title: "Mejora: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: Necesidad u oportunidad
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Propuesta
+    validations:
+      required: true
+  - type: textarea
+    id: value
+    attributes:
+      label: Valor esperado
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Criterios de aceptación
+      placeholder: "- [ ] Resultado verificable"
+    validations:
+      required: true

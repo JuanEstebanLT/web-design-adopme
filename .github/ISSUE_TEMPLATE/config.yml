@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentación del proyecto
+    url: https://github.com/JuanEstebanLT/web-design-adopme#readme
+    about: Revisa el alcance, la arquitectura y el flujo de colaboración antes de abrir un issue.

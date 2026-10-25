@@ -1,0 +1,111 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../server/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum UserRole {
+  ADOPTER
+  SHELTER
+  ADMIN
+}
+
+enum PetSpecies {
+  DOG
+  CAT
+  OTHER
+}
+
+enum PetStatus {
+  AVAILABLE
+  IN_PROCESS
+  ADOPTED
+}
+
+enum RequestStatus {
+  PENDING
+  IN_REVIEW
+  APPROVED
+  REJECTED
+  CANCELLED
+}
+
+model Profile {
+  id        String   @id @db.Uuid
+  fullName  String   @map("full_name")
+  phone     String?
+  city      String?
+  role      UserRole @default(ADOPTER)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  managedShelters Shelter[]         @relation("ShelterManager")
+  requests       AdoptionRequest[]
+
+  @@map("profiles")
+}
+
+model Shelter {
+  id          String   @id @default(uuid()) @db.Uuid
+  managerId   String?  @db.Uuid @map("manager_id")
+  name        String
+  description String?
+  email       String   @unique
+  phone       String?
+  city        String
+  address     String?
+  verified    Boolean  @default(false)
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  manager Profile? @relation("ShelterManager", fields: [managerId], references: [id], onDelete: SetNull)
+  pets    Pet[]
+
+  @@index([managerId])
+  @@map("shelters")
+}
+
+model Pet {
+  id          String     @id @default(uuid()) @db.Uuid
+  shelterId   String     @db.Uuid @map("shelter_id")
+  name        String
+  species     PetSpecies
+  breed       String?
+  ageMonths   Int?       @map("age_months")
+  sex         String?
+  size        String?
+  description String
+  imageUrl    String?    @map("image_url")
+  status      PetStatus  @default(AVAILABLE)
+  publishedAt DateTime?  @map("published_at")
+  createdAt   DateTime   @default(now()) @map("created_at")
+  updatedAt   DateTime   @updatedAt @map("updated_at")
+
+  shelter Shelter           @relation(fields: [shelterId], references: [id], onDelete: Restrict)
+  requests AdoptionRequest[]
+
+  @@index([shelterId, status])
+  @@map("pets")
+}
+
+model AdoptionRequest {
+  id            String        @id @default(uuid()) @db.Uuid
+  applicantId   String        @db.Uuid @map("applicant_id")
+  petId         String        @db.Uuid @map("pet_id")
+  message       String
+  housingType   String?       @map("housing_type")
+  hasOtherPets  Boolean?      @map("has_other_pets")
+  status        RequestStatus @default(PENDING)
+  submittedAt   DateTime      @default(now()) @map("submitted_at")
+  updatedAt     DateTime      @updatedAt @map("updated_at")
+
+  applicant Profile @relation(fields: [applicantId], references: [id], onDelete: Restrict)
+  pet       Pet     @relation(fields: [petId], references: [id], onDelete: Restrict)
+
+  @@unique([applicantId, petId])
+  @@index([petId, status])
+  @@map("adoption_requests")
+}

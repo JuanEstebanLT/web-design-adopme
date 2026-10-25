@@ -1,0 +1,43 @@
+name: Tarea técnica
+description: Registrar trabajo de ingeniería con resultado verificable.
+title: "TT-XX: "
+labels: ["type:task"]
+body:
+  - type: input
+    id: technical-id
+    attributes:
+      label: Identificador técnico
+      placeholder: TT-XX
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Descripción
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Criterios de aceptación verificables
+      placeholder: "- [ ] Resultado observable"
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Prioridad
+      options: [Crítica, Alta, Media, Baja]
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencias
+  - type: dropdown
+    id: status
+    attributes:
+      label: Estado inicial
+      options: [Backlog, Todo]
+    validations:
+      required: true
