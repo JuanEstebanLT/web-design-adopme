@@ -58,7 +58,7 @@ La primera entrega no pretende resolver todo el ciclo operativo de un refugio. E
 | Entrega | 26 de octubre de 2026, 6:00 p. m., hora de Colombia |
 | Tipo de producto | Aplicación web SPA con backend administrado planificado |
 | Repositorio | Público, administrado mediante GitHub Flow |
-| Estado | Base inicial ejecutable; cierre académico documentado y en verificación |
+| Estado | Base inicial ejecutable; cierre académico documentado y verificado |
 
 ## Problema, justificación y objetivos
 
@@ -680,9 +680,9 @@ Las responsabilidades concretas se definirán después de incorporar colaborador
 | Prisma | Configurado | Esquema sin migraciones aplicadas |
 | Stitch | Parcial | Cuatro secciones originales versionadas; captura específica de Detalle pendiente |
 | Vercel | Configurado | Publicación pendiente |
-| GitHub Actions | Implementado y verificado | [Workflow de validación](https://github.com/JuanEstebanLT/web-design-adopme/actions/workflows/ci.yml) |
+| GitHub Actions | Implementado y verificado | [Historial del workflow de validación](https://github.com/JuanEstebanLT/web-design-adopme/actions/workflows/ci.yml) |
 | GitHub Project | Implementado | [Project #7](https://github.com/users/JuanEstebanLT/projects/7) con 25 Issues trazables |
-| GitHub Flow | Implementado y verificado | [Pull requests](https://github.com/JuanEstebanLT/web-design-adopme/pulls?q=is%3Apr) integrados tras CI |
+| GitHub Flow | Implementado y verificado | [Historial de pull requests](https://github.com/JuanEstebanLT/web-design-adopme/pulls?q=is%3Apr) integrado tras CI |
 | Protección de `main` | Implementada y verificada | PR y check `validate` obligatorios; sin force-push ni eliminación |
 | Video grupal | Pendiente | No grabado ni publicado |
 
@@ -739,7 +739,8 @@ La matriz detallada, el inventario de pruebas y el guion del video se encuentran
 - [GitHub Project #7](https://github.com/users/JuanEstebanLT/projects/7)
 - [Issues de Adopme](https://github.com/JuanEstebanLT/web-design-adopme/issues)
 - [Pull request inicial #24](https://github.com/JuanEstebanLT/web-design-adopme/pull/24)
-- [Workflow de validación #1](https://github.com/JuanEstebanLT/web-design-adopme/actions/runs/40151119079)
+- [Pull request de cierre académico #30](https://github.com/JuanEstebanLT/web-design-adopme/pull/30)
+- [Workflow de validación continua](https://github.com/JuanEstebanLT/web-design-adopme/actions/workflows/ci.yml)
 - [Prototipo de Adopme en Google Stitch](https://stitch.withgoogle.com/preview/5253726196803477313?node-id=7a2c06889ff04ac1b8823a52d7e9267c)
 - [Repositorio documental de referencia Móviles G7](https://github.com/JuanEstebanLT/proyectointegradormoviles-g7)
 
