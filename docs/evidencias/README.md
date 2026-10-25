@@ -6,16 +6,19 @@ Este directorio organiza las pruebas de la entrega. No se declara ningún video 
 
 | Evidencia | Estado inicial | Fuente esperada |
 |---|---|---|
-| Repositorio público | Disponible | URL de GitHub |
-| Compilación local | Por ejecutar | Salida de `npm run build` |
-| Análisis estático | Por ejecutar | Salida de `npm run lint` |
-| Navegación de tres vistas | Por verificar | Servidor local |
+| Repositorio público | Verificado | [JuanEstebanLT/web-design-adopme](https://github.com/JuanEstebanLT/web-design-adopme) |
+| Compilación local | Verificada | `npm run build`: 30 módulos transformados |
+| Análisis estático | Verificado | `npm run lint`: finalización correcta |
+| Esquema Prisma | Verificado | `prisma validate` y `prisma generate` correctos |
+| Navegación de tres vistas | Verificada por HTTP | `/`, `/mascotas` y `/mascotas/luna` respondieron 200 en `vite preview` |
 | Prototipo interactivo | Enlace disponible | Google Stitch |
 | Capturas originales | Pendiente de acceso | Exportación de Stitch |
 | Diagrama ER | Documentado | README / Mermaid |
 | Arquitectura | Documentada | README / Mermaid |
-| GitHub Project | Pendiente de configuración | URL real del proyecto |
-| Pull request inicial | Pendiente | URL real del PR |
+| GitHub Project | Verificado | [Project #7](https://github.com/users/JuanEstebanLT/projects/7) |
+| Pull request inicial | Fusionado | [PR #24](https://github.com/JuanEstebanLT/web-design-adopme/pull/24) |
+| Integración continua | Verificada | [Workflow #1](https://github.com/JuanEstebanLT/web-design-adopme/actions/runs/40151119079) |
+| Protección de `main` | Verificada por API | PR y `validate` obligatorios; force-push y eliminación bloqueados |
 | Despliegue Vercel | Pendiente de vinculación | URL real de producción |
 | Video grupal | No grabado | Enlace entregado por el equipo |
 

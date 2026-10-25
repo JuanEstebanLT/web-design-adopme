@@ -640,7 +640,10 @@ Las responsabilidades concretas se definirán después de incorporar colaborador
 | Prisma | Configurado | Esquema sin migraciones aplicadas |
 | Stitch | Parcial | Enlace disponible; capturas bloqueadas por acceso |
 | Vercel | Configurado | Publicación pendiente |
-| GitHub Actions | Configurado | Resultado remoto pendiente del PR |
+| GitHub Actions | Implementado y verificado | [Workflow #1 satisfactorio](https://github.com/JuanEstebanLT/web-design-adopme/actions/runs/40151119079) |
+| GitHub Project | Implementado | [Project #7](https://github.com/users/JuanEstebanLT/projects/7) con 23 Issues iniciales |
+| GitHub Flow inicial | Implementado y verificado | [PR #24](https://github.com/JuanEstebanLT/web-design-adopme/pull/24) fusionado tras CI |
+| Protección de `main` | Implementada y verificada | PR y check `validate` obligatorios; sin force-push ni eliminación |
 | Video grupal | Pendiente | No grabado ni publicado |
 
 ## Hoja de ruta
@@ -677,7 +680,8 @@ La lista de comprobación y el guion sugerido se encuentran en [`docs/evidencias
 - [Repositorio Adopme](https://github.com/JuanEstebanLT/web-design-adopme)
 - [GitHub Project #7](https://github.com/users/JuanEstebanLT/projects/7)
 - [Issues de Adopme](https://github.com/JuanEstebanLT/web-design-adopme/issues)
-- [Pull requests](https://github.com/JuanEstebanLT/web-design-adopme/pulls)
+- [Pull request inicial #24](https://github.com/JuanEstebanLT/web-design-adopme/pull/24)
+- [Workflow de validación #1](https://github.com/JuanEstebanLT/web-design-adopme/actions/runs/40151119079)
 - [Prototipo de Adopme en Google Stitch](https://stitch.withgoogle.com/preview/5253726196803477313?node-id=7a2c06889ff04ac1b8823a52d7e9267c)
 - [Repositorio documental de referencia Móviles G7](https://github.com/JuanEstebanLT/proyectointegradormoviles-g7)
 
