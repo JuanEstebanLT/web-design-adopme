@@ -147,7 +147,7 @@ Los nombres, perfiles e imágenes mostrados en la interfaz son datos demostrativ
 | Supabase JS | Auth y acceso controlado a Data API | Cliente preparado, sin conexión |
 | Supabase PostgreSQL | Persistencia administrada | Diseñada, pendiente de proyecto |
 | Prisma ORM 7 | Modelo y acceso desde servidor futuro | Esquema preparado, sin migración |
-| Google Stitch | Prototipo visual | Enlace disponible; capturas pendientes |
+| Google Stitch | Prototipo visual | Enlace y cuatro capturas originales disponibles; detalle de mascota pendiente |
 | Vercel | Hosting de la SPA | Reescritura configurada; despliegue pendiente |
 | GitHub | Código, Issues, PR, Project y CI | Configuración en curso |
 | Mermaid | Diagramas técnicos versionables | Implementado en este README |
@@ -354,8 +354,8 @@ Los filtros del catálogo actual se ejecutan en memoria y no realizan solicitude
 
 **Prototipo interactivo:** [Adopme en Google Stitch](https://stitch.withgoogle.com/preview/5253726196803477313?node-id=7a2c06889ff04ac1b8823a52d7e9267c)
 
-> [!WARNING]
-> Las capturas originales de Stitch no están incluidas porque el enlace no fue accesible desde el entorno automatizado y no se fabricará evidencia. El procedimiento de incorporación se encuentra en [`docs/prototipos/README.md`](docs/prototipos/README.md).
+> [!NOTE]
+> Las siguientes cuatro capturas provienen del diseño original de Google Stitch. **Proceso de adopción** y **Compromiso con la adopción** son secciones del diseño, no vistas independientes de detalle. La captura específica de la tercera vista —Detalle de mascota y adopción— continúa pendiente.
 
 ### Vista 1 · Inicio
 
@@ -367,6 +367,12 @@ Los filtros del catálogo actual se ejecutan en memoria y no realizan solicitude
 | Datos previstos | `GET /rest/v1/pets?status=eq.AVAILABLE` |
 | Estado | Ruta `/` implementada con datos demostrativos |
 
+<div align="center">
+  <img src="public/images/prototipos/adopme-inicio-stitch.png" width="880" alt="Diseño original de la sección de inicio de Adopme en Google Stitch, con propuesta de valor, mascotas destacadas y filtros de búsqueda" />
+  <br>
+  <sub><strong>Figura 1.</strong> Inicio: propuesta de valor, llamados a la acción, indicadores y acceso al catálogo.</sub>
+</div>
+
 ### Vista 2 · Catálogo de mascotas
 
 | Aspecto | Definición |
@@ -377,6 +383,32 @@ Los filtros del catálogo actual se ejecutan en memoria y no realizan solicitude
 | Datos previstos | Consulta filtrada de `pets` mediante Supabase Data API |
 | Estado | Ruta `/mascotas` implementada; filtros en memoria |
 
+<div align="center">
+  <img src="public/images/prototipos/adopme-catalogo-stitch.png" width="880" alt="Diseño original del catálogo de mascotas de Adopme en Google Stitch, organizado como una cuadrícula de perfiles disponibles" />
+  <br>
+  <sub><strong>Figura 2.</strong> Catálogo: perfiles resumidos con fotografía, características, ubicación y acceso al detalle.</sub>
+</div>
+
+### Sección · Proceso de adopción
+
+Esta sección explica el recorrido propuesto en tres momentos: encontrar una coincidencia adecuada, conocer la historia de la mascota y formalizar una adopción acompañada. Forma parte del contenido informativo del diseño y orienta la navegación hacia el catálogo y el futuro formulario de solicitud.
+
+<div align="center">
+  <img src="public/images/prototipos/adopme-proceso-stitch.png" width="880" alt="Sección original del proceso de adopción de Adopme en Google Stitch, presentada mediante tres pasos" />
+  <br>
+  <sub><strong>Figura 3.</strong> Proceso de adopción: explicación visual de las etapas de búsqueda, encuentro y adopción responsable.</sub>
+</div>
+
+### Sección · Compromiso con la adopción
+
+La sección refuerza la adopción como una decisión de largo plazo e incorpora orientación sobre bienestar, tiempo, salud y seguimiento. También presenta alternativas de apoyo y llamados a iniciar una solicitud. No sustituye la vista individual de una mascota.
+
+<div align="center">
+  <img src="public/images/prototipos/adopme-compromiso-stitch.png" width="880" alt="Sección original sobre el compromiso con la adopción de Adopme en Google Stitch, con recomendaciones y llamados a la acción" />
+  <br>
+  <sub><strong>Figura 4.</strong> Compromiso con la adopción: criterios de responsabilidad, testimonio y próximos pasos.</sub>
+</div>
+
 ### Vista 3 · Detalle de mascota y adopción
 
 | Aspecto | Definición |
@@ -386,6 +418,9 @@ Los filtros del catálogo actual se ejecutan en memoria y no realizan solicitude
 | Destino | Catálogo o formulario futuro de solicitud |
 | Datos previstos | `pets`, `shelters` y `adoption_requests` |
 | Estado | Ruta `/mascotas/:petId` implementada; creación de solicitud pendiente |
+
+> [!WARNING]
+> La captura original específica de esta vista todavía no está disponible en el repositorio. Las figuras 3 y 4 documentan secciones complementarias del diseño y no se presentan como sustitutos del detalle de mascota.
 
 ## Flujo de navegación
 
@@ -553,7 +588,7 @@ No se publica una URL de producción hasta que Vercel devuelva y se compruebe un
 | TT-02 | [#9](https://github.com/JuanEstebanLT/web-design-adopme/issues/9) | Configurar React Router | Tres rutas y 404 navegables |
 | TT-03 | [#10](https://github.com/JuanEstebanLT/web-design-adopme/issues/10) | Consolidar estructura modular | Responsabilidades separadas |
 | TT-04 | [#11](https://github.com/JuanEstebanLT/web-design-adopme/issues/11) | Preparar diseño base responsive | UI accesible en escritorio y móvil |
-| TT-05 | [#12](https://github.com/JuanEstebanLT/web-design-adopme/issues/12) | Incorporar prototipos de Stitch | Tres capturas originales versionadas |
+| TT-05 | [#12](https://github.com/JuanEstebanLT/web-design-adopme/issues/12) | Incorporar prototipos de Stitch | Cuatro secciones originales versionadas; Detalle pendiente |
 | TT-06 | [#13](https://github.com/JuanEstebanLT/web-design-adopme/issues/13) | Documentar modelo de datos | Entidades, restricciones y cardinalidades |
 | TT-07 | [#14](https://github.com/JuanEstebanLT/web-design-adopme/issues/14) | Crear diagramas Mermaid | Arquitectura, ER y navegación renderizables |
 | TT-08 | [#15](https://github.com/JuanEstebanLT/web-design-adopme/issues/15) | Conectar Supabase | Cliente y RLS verificados con credenciales |
@@ -638,7 +673,7 @@ Las responsabilidades concretas se definirán después de incorporar colaborador
 | Supabase JS | Configurado | Inactivo sin `.env.local` |
 | Supabase Auth/PostgreSQL/RLS | Planificado | Requiere proyecto y credenciales |
 | Prisma | Configurado | Esquema sin migraciones aplicadas |
-| Stitch | Parcial | Enlace disponible; capturas bloqueadas por acceso |
+| Stitch | Parcial | Cuatro secciones originales versionadas; captura específica de Detalle pendiente |
 | Vercel | Configurado | Publicación pendiente |
 | GitHub Actions | Implementado y verificado | [Workflow #1 satisfactorio](https://github.com/JuanEstebanLT/web-design-adopme/actions/runs/40151119079) |
 | GitHub Project | Implementado | [Project #7](https://github.com/users/JuanEstebanLT/projects/7) con 23 Issues iniciales |
