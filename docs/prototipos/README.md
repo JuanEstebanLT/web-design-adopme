@@ -4,14 +4,24 @@ El prototipo interactivo del equipo se encuentra en [Google Stitch](https://stit
 
 ## Estado de las capturas
 
-Las capturas originales no pudieron recuperarse desde el entorno de automatización el 24 de octubre de 2026: el enlace no fue accesible desde la consulta web y no había un navegador controlable disponible. Para no fabricar evidencia, este directorio no contiene imágenes presentadas como originales.
+Cuatro capturas originales de Google Stitch están disponibles en [`public/images/prototipos/`](../../public/images/prototipos/). Fueron verificadas como archivos PNG válidos y se incorporan al README principal mediante rutas relativas.
 
-Pendiente manual:
+| Captura | Dimensiones | Función documental |
+|---|---:|---|
+| [`adopme-inicio-stitch.png`](../../public/images/prototipos/adopme-inicio-stitch.png) | 982 × 775 px | Presenta la propuesta de valor, llamados a la acción y filtros iniciales |
+| [`adopme-catalogo-stitch.png`](../../public/images/prototipos/adopme-catalogo-stitch.png) | 940 × 754 px | Muestra el catálogo y la composición de las tarjetas de mascotas |
+| [`adopme-proceso-stitch.png`](../../public/images/prototipos/adopme-proceso-stitch.png) | 960 × 761 px | Explica el proceso de adopción como sección informativa en tres pasos |
+| [`adopme-compromiso-stitch.png`](../../public/images/prototipos/adopme-compromiso-stitch.png) | 953 × 765 px | Comunica responsabilidades, seguimiento y llamados a la acción |
 
-1. Abrir el enlace de Stitch con la cuenta que tenga acceso al proyecto.
-2. Exportar las tres pantallas originales sin alterar su contenido.
-3. Guardarlas como `inicio.png`, `catalogo.png` y `detalle.png` dentro de este directorio.
-4. Actualizar la sección **Diseño y prototipos** del README principal con rutas relativas.
-5. Verificar que nombres, acciones y navegación coincidan con la implementación documentada.
+## Alcance y pendiente
 
-La interfaz React incluida en el repositorio es una base funcional, no una captura del prototipo de Stitch.
+Las capturas de **Proceso de adopción** y **Compromiso con la adopción** representan secciones del diseño original; no constituyen vistas independientes de detalle. Todavía falta exportar e incorporar una captura específica de la vista **Detalle de mascota y adopción**.
+
+Cuando esa captura esté disponible:
+
+1. Exportarla desde el proyecto original de Stitch sin alterar su contenido.
+2. Guardarla en `public/images/prototipos/` con un nombre descriptivo.
+3. Añadirla a la sección **Vista 3 · Detalle de mascota y adopción** del README principal.
+4. Verificar la ruta relativa y cerrar el Issue correspondiente únicamente cuando todos sus criterios estén satisfechos.
+
+La interfaz React incluida en el repositorio continúa siendo una implementación funcional y no debe confundirse con estas capturas del prototipo.

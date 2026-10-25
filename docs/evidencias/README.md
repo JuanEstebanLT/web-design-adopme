@@ -12,7 +12,7 @@ Este directorio organiza las pruebas de la entrega. No se declara ningún video 
 | Esquema Prisma | Verificado | `prisma validate` y `prisma generate` correctos |
 | Navegación de tres vistas | Verificada por HTTP | `/`, `/mascotas` y `/mascotas/luna` respondieron 200 en `vite preview` |
 | Prototipo interactivo | Enlace disponible | Google Stitch |
-| Capturas originales | Pendiente de acceso | Exportación de Stitch |
+| Capturas originales | Parcial | Cuatro secciones de Stitch versionadas; vista específica de Detalle pendiente |
 | Diagrama ER | Documentado | README / Mermaid |
 | Arquitectura | Documentada | README / Mermaid |
 | GitHub Project | Verificado | [Project #7](https://github.com/users/JuanEstebanLT/projects/7) |
