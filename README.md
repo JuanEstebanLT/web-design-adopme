@@ -356,7 +356,9 @@ Los filtros del catálogo actual se ejecutan en memoria y no realizan solicitude
 
 ### Identidad visual
 
-La identidad de Adopme combina fondos claros, azul oscuro como color estructural, acentos cálidos, tarjetas redondeadas y fotografía de mascotas. Esta jerarquía busca transmitir confianza, cercanía y claridad sin trivializar la responsabilidad de adoptar. Las capturas de Stitch son la referencia visual original; la interfaz React es una implementación funcional inicial y no se presenta como una reproducción exacta del prototipo.
+La identidad de Adopme combina fondo `#F8F9FF`, azul pastel, acentos durazno y menta, tarjetas redondeadas y fotografía de mascotas. La interfaz React implementa la composición de Stitch con HTML semántico y componentes reales: navegación responsive, hero, filtros, catálogo, proceso, compromiso, detalle y footer. Las capturas continúan siendo la referencia visual original y no se usan como interfaz funcional.
+
+La implementación utiliza seis perfiles demostrativos identificados de forma explícita. Los filtros por texto, especie, edad, tamaño, mascotas senior y casos especiales funcionan en memoria y se conservan en parámetros de URL. No existen publicaciones, métricas de adopción, testimonios, alianzas, autenticación ni solicitudes reales.
 
 > [!NOTE]
 > Las siguientes cuatro capturas provienen del diseño original de Google Stitch. **Proceso de adopción** y **Compromiso con la adopción** son secciones del diseño, no vistas independientes de detalle. La captura específica de la tercera vista —Detalle de mascota y adopción— continúa pendiente.
@@ -381,7 +383,7 @@ La identidad de Adopme combina fondos claros, azul oscuro como color estructural
 
 | Aspecto | Definición |
 |---|---|
-| Función | Explorar perfiles mediante búsqueda y filtro por especie |
+| Función | Explorar perfiles mediante búsqueda y filtros por especie, edad, tamaño y categoría |
 | Acciones | Buscar, filtrar, limpiar filtros y abrir un perfil |
 | Destino | Detalle de la mascota seleccionada |
 | Datos previstos | Consulta filtrada de `pets` mediante Supabase Data API |
@@ -395,7 +397,7 @@ La identidad de Adopme combina fondos claros, azul oscuro como color estructural
 
 ### Sección · Proceso de adopción
 
-Esta sección explica el recorrido propuesto en tres momentos: encontrar una coincidencia adecuada, conocer la historia de la mascota y formalizar una adopción acompañada. Forma parte del contenido informativo del diseño y orienta la navegación hacia el catálogo y el futuro formulario de solicitud.
+Esta sección explica el recorrido previsto en tres momentos: encontrar un compañero, conocer su historia y prepararse para una adopción responsable. No presenta cuestionarios, citas, certificaciones ni acompañamiento automático como funciones disponibles.
 
 <div align="center">
   <img src="public/images/prototipos/adopme-proceso-stitch.png" width="880" alt="Sección original del proceso de adopción de Adopme en Google Stitch, presentada mediante tres pasos" />
@@ -405,7 +407,7 @@ Esta sección explica el recorrido propuesto en tres momentos: encontrar una coi
 
 ### Sección · Compromiso con la adopción
 
-La sección refuerza la adopción como una decisión de largo plazo e incorpora orientación sobre bienestar, tiempo, salud y seguimiento. También presenta alternativas de apoyo y llamados a iniciar una solicitud. No sustituye la vista individual de una mascota.
+La sección refuerza la adopción como una decisión de largo plazo e incorpora orientación sobre responsabilidad, tiempo, salud y bienestar. El testimonio del prototipo se sustituye por un bloque editorial claramente rotulado como demostrativo; no se atribuye a una familia, refugio o red médica.
 
 <div align="center">
   <img src="public/images/prototipos/adopme-compromiso-stitch.png" width="880" alt="Sección original sobre el compromiso con la adopción de Adopme en Google Stitch, con recomendaciones y llamados a la acción" />
@@ -674,11 +676,11 @@ Las responsabilidades concretas se definirán después de incorporar colaborador
 |---|---|---|
 | React + Vite | Implementado | Tres vistas y build local |
 | React Router | Implementado | `/`, `/mascotas`, `/mascotas/:petId`, `*` |
-| Filtros del catálogo | Implementados | Estado local, sin API |
+| Filtros del catálogo | Implementados | Texto, especie, edad, tamaño y categoría en URL; sin API |
 | Supabase JS | Configurado | Inactivo sin `.env.local` |
 | Supabase Auth/PostgreSQL/RLS | Planificado | Requiere proyecto y credenciales |
 | Prisma | Configurado | Esquema sin migraciones aplicadas |
-| Stitch | Parcial | Cuatro secciones originales versionadas; captura específica de Detalle pendiente |
+| Stitch | Implementación frontend | Cuatro secciones adaptadas a React; captura específica de Detalle original pendiente |
 | Vercel | Configurado | Publicación pendiente |
 | GitHub Actions | Implementado y verificado | [Historial del workflow de validación](https://github.com/JuanEstebanLT/web-design-adopme/actions/workflows/ci.yml) |
 | GitHub Project | Implementado | [Project #7](https://github.com/users/JuanEstebanLT/projects/7) con 25 Issues trazables |
