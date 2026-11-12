@@ -18,7 +18,7 @@
 </div>
 
 > [!IMPORTANT]
-> Este repositorio corresponde a la base inicial del **Taller de Arquitectura y Desarrollo Web Integrado**. La navegación y las tres vistas funcionan con datos demostrativos. Supabase, Prisma y Vercel están preparados o documentados, pero no se presentan como conectados ni desplegados sin credenciales y verificaciones reales.
+> **Estado verificado al 12 de noviembre de 2026.** La base académica inicial está documentada y la interfaz basada en Google Stitch ya se integró a `main` mediante el PR #33. Las tres vistas funcionan localmente con seis perfiles demostrativos y filtros en memoria. **Supabase, Prisma y Vercel siguen sin integración o despliegue real**; se reservan para fases posteriores.
 
 ## Tabla de contenido
 
@@ -48,17 +48,18 @@
 
 **Adopme** es una plataforma web concebida para facilitar el encuentro informado entre personas interesadas en adoptar y organizaciones responsables del cuidado de animales. El producto centraliza perfiles de mascotas, información del refugio y el inicio de una solicitud, con énfasis en la trazabilidad y la adopción responsable.
 
-La primera entrega no pretende resolver todo el ciclo operativo de un refugio. Entrega una base ejecutable, modular y documentada sobre la cual el equipo podrá incorporar autenticación, persistencia, evaluación de solicitudes y administración en iteraciones posteriores.
+La primera entrega estableció una base ejecutable, modular y documentada. Posteriormente se integró una interfaz responsive basada en Google Stitch, sin adelantar autenticación, persistencia, evaluación de solicitudes o administración. Esas capacidades se incorporarán en iteraciones posteriores.
 
 ### Contexto académico
 
 | Elemento | Definición |
 |---|---|
 | Actividad | Taller de Arquitectura y Desarrollo Web Integrado |
-| Entrega | 26 de octubre de 2026, 6:00 p. m., hora de Colombia |
+| Fecha de primera entrega | 26 de octubre de 2026, 6:00 p. m. (fecha histórica) |
+| Corte de actualización | 12 de noviembre de 2026 |
 | Tipo de producto | Aplicación web SPA con backend administrado planificado |
 | Repositorio | Público, administrado mediante GitHub Flow |
-| Estado | Base inicial ejecutable; cierre académico documentado y verificado |
+| Estado | Base académica documentada; rediseño frontend integrado y funcionamiento local confirmado |
 
 ## Problema, justificación y objetivos
 
@@ -110,20 +111,23 @@ Adopme reúne información clara, contexto del refugio y un flujo de solicitud t
 - Gestionar perfiles autorizados, refugios y publicaciones.
 - Actualizar el estado de una solicitud con reglas de autorización.
 
-### Alcance de la primera entrega
+### Alcance implementado hasta noviembre de 2026
 
-| Capacidad | Estado de esta base |
+| Capacidad | Estado verificado |
 |---|---|
-| Inicio con propuesta de valor y mascotas destacadas | Implementada con datos demostrativos |
-| Catálogo con búsqueda y filtro por especie | Implementado en memoria |
-| Detalle de mascota y refugio | Implementado con datos demostrativos |
-| Navegación y ruta de error | Implementadas |
-| Modelo Prisma para PostgreSQL | Configurado, sin migraciones aplicadas |
-| Cliente de Supabase | Configurado, inactivo sin variables |
-| Data API y autenticación | Diseñadas, pendientes de proyecto Supabase y RLS |
-| Despliegue Vercel | Preparado, no publicado todavía |
+| Inicio con hero, navegación, fotografías, búsqueda y mascotas destacadas | Implementado con contenido demostrativo |
+| Catálogo de seis perfiles (tres gatos y tres perros) | Implementado con datos locales |
+| Filtros por texto, especie, edad, tamaño, mascotas senior y casos especiales | Implementados en memoria y reflejados en parámetros de URL |
+| Detalle con historia, características y refugio de referencia | Implementado con datos demostrativos |
+| Proceso, compromiso y llamados a explorar | Secciones informativas implementadas |
+| Diseño adaptable y menú móvil | Implementados; revisión a 320 y 375 px pendiente en [#32](https://github.com/JuanEstebanLT/web-design-adopme/issues/32) |
+| Inicio, Catálogo, Detalle y ruta 404 | Implementadas mediante React Router |
+| Modelo Prisma para PostgreSQL | Esquema definido y validado; sin migraciones aplicadas |
+| Cliente de Supabase | Configurado, inactivo sin variables reales |
+| Autenticación, Data API y solicitudes reales | Planificadas, sin integración operativa |
+| Despliegue Vercel | Configuración preparada, publicación pendiente |
 
-Los nombres, perfiles e imágenes mostrados en la interfaz son datos demostrativos para validar la presentación. No representan mascotas ni organizaciones registradas en una base de producción.
+Los seis perfiles, las fotografías y los refugios de referencia son **demostrativos**, no registros de adopciones reales. El [PR #33](https://github.com/JuanEstebanLT/web-design-adopme/pull/33) integró el rediseño visual y los ajustes de navegación en `main`. El equipo confirmó el funcionamiento local el 12 de noviembre de 2026; ello no sustituye las pruebas de dispositivos e integraciones pendientes.
 
 ### Fuera del alcance inicial
 
@@ -147,7 +151,7 @@ Los nombres, perfiles e imágenes mostrados en la interfaz son datos demostrativ
 | Supabase JS | Auth y acceso controlado a Data API | Cliente preparado, sin conexión |
 | Supabase PostgreSQL | Persistencia administrada | Diseñada, pendiente de proyecto |
 | Prisma ORM 7 | Modelo y acceso desde servidor futuro | Esquema preparado, sin migración |
-| Google Stitch | Prototipo visual | Enlace y cuatro capturas originales disponibles; detalle de mascota pendiente |
+| Google Stitch | Prototipo y referencia visual | Cuatro capturas originales; interfaz adaptada a React mediante PR #33. La captura independiente de Detalle no se incluyó por alcance |
 | Vercel | Hosting de la SPA | Reescritura configurada; despliegue pendiente |
 | GitHub | Código, Issues, PR, Project y CI | Implementado y verificado |
 | Mermaid | Diagramas técnicos versionables | Implementado en este README |
@@ -361,7 +365,7 @@ La identidad de Adopme combina fondo `#F8F9FF`, azul pastel, acentos durazno y m
 La implementación utiliza seis perfiles demostrativos identificados de forma explícita. Los filtros por texto, especie, edad, tamaño, mascotas senior y casos especiales funcionan en memoria y se conservan en parámetros de URL. No existen publicaciones, métricas de adopción, testimonios, alianzas, autenticación ni solicitudes reales.
 
 > [!NOTE]
-> Las siguientes cuatro capturas provienen del diseño original de Google Stitch. **Proceso de adopción** y **Compromiso con la adopción** son secciones del diseño, no vistas independientes de detalle. La captura específica de la tercera vista —Detalle de mascota y adopción— continúa pendiente.
+> Las cuatro capturas siguientes provienen del diseño original de Stitch. **Proceso** y **Compromiso** son secciones informativas, no vistas independientes de Detalle. El [Issue #12](https://github.com/JuanEstebanLT/web-design-adopme/issues/12) se cerró como *no planificado*: se acordó conservar las cuatro evidencias sin incorporar una captura adicional de Detalle. La página de detalle sí existe en React, pero no se presenta como una captura original de Stitch.
 
 ### Vista 1 · Inicio
 
@@ -423,10 +427,10 @@ La sección refuerza la adopción como una decisión de largo plazo e incorpora 
 | Acciones | Volver al catálogo; la solicitud aparece deshabilitada y rotulada como futura |
 | Destino | Catálogo o formulario futuro de solicitud |
 | Datos previstos | `pets`, `shelters` y `adoption_requests` |
-| Estado | Ruta `/mascotas/:petId` implementada como evidencia local; creación de solicitud pendiente |
+| Estado | Ruta `/mascotas/:petId` integrada en `main`, con datos demostrativos; solicitud de adopción pendiente |
 
 > [!WARNING]
-> La captura original específica de esta vista todavía no está disponible en el repositorio. Las figuras 3 y 4 documentan secciones complementarias del diseño y no se presentan como sustitutos del detalle de mascota.
+> No se incluyó una captura original independiente de Detalle en Stitch por la decisión registrada en [#12](https://github.com/JuanEstebanLT/web-design-adopme/issues/12), cerrado como no planificado. La vista React `/mascotas/:petId` sí está implementada; las figuras 3 y 4 siguen siendo secciones complementarias.
 
 ## Flujo de navegación
 
@@ -459,8 +463,8 @@ web-design-adopme/
 │   └── prototipos/             # Cuatro capturas originales de Google Stitch
 ├── src/
 │   ├── app/                     # Enrutamiento
-│   ├── components/              # Layout y UI reutilizable
-│   ├── features/pets/           # Datos demostrativos de mascotas
+│   ├── components/              # Layout, PetCard y PetFilters reutilizables
+│   ├── features/pets/           # Datos demostrativos y petFilters.js
 │   ├── lib/                     # Cliente modular de Supabase
 │   ├── pages/                   # Inicio, Catálogo, Detalle y 404
 │   ├── services/                # Frontera de acceso a datos
@@ -575,17 +579,19 @@ No se publica una URL de producción hasta que Vercel devuelva y se compruebe un
 
 ## Historias de usuario y tareas técnicas
 
-### Backlog funcional
+### Historias de usuario y estado real
 
-| ID | Issue | Historia | Prioridad | Estado inicial |
+| ID | Issue | Alcance | Prioridad | Estado al 12/11/2026 |
 |---|---:|---|---|---|
-| HU-01 | [#2](https://github.com/JuanEstebanLT/web-design-adopme/issues/2) | Como visitante, quiero consultar mascotas disponibles para conocer opciones de adopción. | Alta | Todo |
-| HU-02 | [#3](https://github.com/JuanEstebanLT/web-design-adopme/issues/3) | Como visitante, quiero filtrar mascotas para encontrar perfiles acordes con mi contexto. | Alta | Todo |
-| HU-03 | [#4](https://github.com/JuanEstebanLT/web-design-adopme/issues/4) | Como visitante, quiero visualizar el detalle de una mascota para tomar una decisión informada. | Alta | Todo |
-| HU-04 | [#5](https://github.com/JuanEstebanLT/web-design-adopme/issues/5) | Como visitante, quiero consultar el refugio responsable para conocer el origen de la publicación. | Media | Backlog |
-| HU-05 | [#6](https://github.com/JuanEstebanLT/web-design-adopme/issues/6) | Como adoptante, quiero registrar una solicitud para expresar formalmente mi interés. | Alta | Backlog |
-| HU-06 | [#7](https://github.com/JuanEstebanLT/web-design-adopme/issues/7) | Como adoptante, quiero consultar mis solicitudes para conocer su estado. | Media | Backlog |
-| HU-07 | [#8](https://github.com/JuanEstebanLT/web-design-adopme/issues/8) | Como refugio, quiero gestionar publicaciones de mascotas para mantener el catálogo actualizado. | Media | Backlog |
+| HU-01 | [#2](https://github.com/JuanEstebanLT/web-design-adopme/issues/2) | Consultar mascotas disponibles | Alta | **Abierto**: catálogo local; publicaciones reales y estados de carga/error pendientes |
+| HU-02 | [#3](https://github.com/JuanEstebanLT/web-design-adopme/issues/3) | Filtrar mascotas | Alta | **Cerrado, completado**: búsqueda, filtros locales y URL |
+| HU-03 | [#4](https://github.com/JuanEstebanLT/web-design-adopme/issues/4) | Ver detalle de una mascota | Alta | **Cerrado, completado**: detalle y estado de mascota inexistente con datos locales |
+| HU-04 | [#5](https://github.com/JuanEstebanLT/web-design-adopme/issues/5) | Consultar un refugio | Media | **Abierto**: consulta de datos autorizados reales pendiente |
+| HU-05 | [#6](https://github.com/JuanEstebanLT/web-design-adopme/issues/6) | Registrar solicitud | Alta | **Abierto**: requiere autenticación y persistencia |
+| HU-06 | [#7](https://github.com/JuanEstebanLT/web-design-adopme/issues/7) | Consultar solicitudes propias | Media | **Abierto**: requiere autenticación, solicitudes reales y RLS |
+| HU-07 | [#8](https://github.com/JuanEstebanLT/web-design-adopme/issues/8) | Gestionar publicaciones | Media | **Abierto**: requiere permisos de refugio y persistencia |
+
+Los issues HU-02 y HU-03 se cerraron por el **alcance demostrativo del frontend**. Su cierre no implica integración real con Supabase ni publicación de datos de refugios.
 
 ### Tareas técnicas iniciales
 
@@ -595,7 +601,7 @@ No se publica una URL de producción hasta que Vercel devuelva y se compruebe un
 | TT-02 | [#9](https://github.com/JuanEstebanLT/web-design-adopme/issues/9) | Configurar React Router | Tres rutas y 404 navegables |
 | TT-03 | [#10](https://github.com/JuanEstebanLT/web-design-adopme/issues/10) | Consolidar estructura modular | Responsabilidades separadas |
 | TT-04 | [#11](https://github.com/JuanEstebanLT/web-design-adopme/issues/11) | Preparar diseño base responsive | UI accesible en escritorio y móvil |
-| TT-05 | [#12](https://github.com/JuanEstebanLT/web-design-adopme/issues/12) | Incorporar prototipos de Stitch | Cuatro secciones originales versionadas; Detalle pendiente |
+| TT-05 | [#12](https://github.com/JuanEstebanLT/web-design-adopme/issues/12) | Documentar capturas originales de Stitch | Cuatro capturas conservadas; cierre como **no planificado** para imagen adicional de Detalle |
 | TT-06 | [#13](https://github.com/JuanEstebanLT/web-design-adopme/issues/13) | Documentar modelo de datos | Entidades, restricciones y cardinalidades |
 | TT-07 | [#14](https://github.com/JuanEstebanLT/web-design-adopme/issues/14) | Crear diagramas Mermaid | Arquitectura, ER y navegación renderizables |
 | TT-08 | [#15](https://github.com/JuanEstebanLT/web-design-adopme/issues/15) | Conectar Supabase | Cliente y RLS verificados con credenciales |
@@ -607,8 +613,9 @@ No se publica una URL de producción hasta que Vercel devuelva y se compruebe un
 | TT-14 | [#21](https://github.com/JuanEstebanLT/web-design-adopme/issues/21) | Mantener README académico | Estado y evidencias actualizados |
 | TT-15 | [#22](https://github.com/JuanEstebanLT/web-design-adopme/issues/22) | Configurar validaciones | CI ejecuta lint, Prisma y build |
 | TT-16 | [#23](https://github.com/JuanEstebanLT/web-design-adopme/issues/23) | Preparar evidencias | Matriz, capturas y guion verificables |
+| TT-Stitch | [#32](https://github.com/JuanEstebanLT/web-design-adopme/issues/32) | Adaptar interfaz de Stitch a React | PR #33 fusionado; pendiente comprobación móvil a 320 y 375 px |
 
-Los Issues reales se crean sin responsable hasta que los colaboradores sean incorporados y el equipo acuerde la distribución.
+Los issues futuros no tienen responsable asignado hasta que el equipo acuerde su distribución. Al 12 de noviembre de 2026, GitHub registra **26 issues: 17 cerrados y nueve abiertos**. El #12 se cerró como *no planificado*, no como captura de Detalle completada.
 
 ## Gestión del proyecto en GitHub
 
@@ -645,7 +652,7 @@ Tipos habituales: `feat`, `fix`, `docs`, `test`, `refactor`, `chore` y `ci`.
 
 ### Pull requests
 
-Cada PR debe incluir resumen, Issue relacionado, cambios, evidencias, pruebas y observaciones. La plantilla evita declarar verificaciones no ejecutadas. La rama `main` debe recibir cambios mediante PR una vez finalizada la inicialización.
+Cada PR debe incluir resumen, contexto, evidencias y pruebas verificables. El [PR #33](https://github.com/JuanEstebanLT/web-design-adopme/pull/33) fusionó el rediseño Stitch el 12 de noviembre de 2026 tras superar el check `validate`. Se eliminaron las seis ramas históricas de trabajo, conservando el historial de commits y pull requests. Los nuevos ajustes documentales se gestionan mediante ramas temporales y PR.
 
 ### Labels, milestones y Project
 
@@ -653,7 +660,7 @@ Cada PR debe incluir resumen, Issue relacionado, cambios, evidencias, pruebas y 
 - Prioridades: `priority:critical`, `priority:high`, `priority:medium`, `priority:low`.
 - Áreas: `area:frontend`, `area:backend`, `area:database`, `area:architecture`, `area:design`, `area:devops`, `area:github`.
 - Milestones: Inicialización y entrega académica; Fundamentos de frontend; Integración backend; Funcionalidades de adopción; Validación y despliegue.
-- Project: [**Adopme — Desarrollo y seguimiento**](https://github.com/users/JuanEstebanLT/projects/7), con `Backlog`, `Todo`, `In Progress`, `In Review` y `Done`, además de los campos `Tipo` y `Prioridad`. Incluye las 23 historias/tareas iniciales y los Issues de mantenimiento #25 y #27. Milestone y responsable utilizan los campos nativos de GitHub; los responsables permanecen vacíos.
+- Project: [**Adopme — Desarrollo y seguimiento**](https://github.com/users/JuanEstebanLT/projects/7), con `Backlog`, `Todo`, `In Progress`, `In Review` y `Done`, además de `Tipo` y `Prioridad`. Existen 26 issues en el repositorio. Los estados del tablero deben comprobarse allí, pues no necesariamente se sincronizan con el cierre de los issues. Los responsables permanecen sin asignar.
 
 No se asignan Issues mientras los demás integrantes no sean colaboradores del repositorio.
 
@@ -672,26 +679,37 @@ Las responsabilidades concretas se definirán después de incorporar colaborador
 
 ## Estado actual
 
+**Corte de verificación: 12 de noviembre de 2026.** El proyecto conserva la documentación de la primera entrega y ya incluye en `main` el rediseño responsive basado en Stitch. El frontend funciona localmente según la comprobación del equipo; no existe todavía persistencia ni despliegue real.
+
 | Elemento | Clasificación | Evidencia o limitación |
 |---|---|---|
-| React + Vite | Implementado | Tres vistas y build local |
-| React Router | Implementado | `/`, `/mascotas`, `/mascotas/:petId`, `*` |
-| Filtros del catálogo | Implementados | Texto, especie, edad, tamaño y categoría en URL; sin API |
-| Supabase JS | Configurado | Inactivo sin `.env.local` |
-| Supabase Auth/PostgreSQL/RLS | Planificado | Requiere proyecto y credenciales |
-| Prisma | Configurado | Esquema sin migraciones aplicadas |
-| Stitch | Implementación frontend | Cuatro secciones adaptadas a React; captura específica de Detalle original pendiente |
-| Vercel | Configurado | Publicación pendiente |
-| GitHub Actions | Implementado y verificado | [Historial del workflow de validación](https://github.com/JuanEstebanLT/web-design-adopme/actions/workflows/ci.yml) |
-| GitHub Project | Implementado | [Project #7](https://github.com/users/JuanEstebanLT/projects/7) con 25 Issues trazables |
-| GitHub Flow | Implementado y verificado | [Historial de pull requests](https://github.com/JuanEstebanLT/web-design-adopme/pulls?q=is%3Apr) integrado tras CI |
-| Protección de `main` | Implementada y verificada | PR y check `validate` obligatorios; sin force-push ni eliminación |
-| Video grupal | Pendiente | No grabado ni publicado |
+| React 19 + Vite 8 | Implementado | Inicio, Catálogo, Detalle y 404; build validado por CI |
+| React Router 7 | Implementado | `/`, `/mascotas`, `/mascotas/:petId` y ruta comodín |
+| Interfaz Google Stitch | Implementada | Hero, navegación, catálogo, proceso, compromiso y footer integrados por [PR #33](https://github.com/JuanEstebanLT/web-design-adopme/pull/33) |
+| Perfiles de mascotas | Demostrativos | Seis perfiles locales, sin publicaciones ni refugios reales |
+| Filtros del catálogo | Implementados | Texto, especie, edad, tamaño, senior y casos especiales; parámetros de URL |
+| Responsive | Implementado; revisión parcial | Pruebas headless reportadas a 768, 1024 y 1440 px; verificación específica a 320 y 375 px pendiente en [#32](https://github.com/JuanEstebanLT/web-design-adopme/issues/32) |
+| Prisma | Configurado | Esquema validado; no hay migraciones ni consultas reales |
+| Supabase JS | Preparado | Cliente inactivo sin variables reales; no hay Auth, base conectada ni RLS |
+| Vercel | Preparado | Configuración SPA, sin publicación verificada |
+| GitHub Actions | Validado | `validate` aprobó lint, Prisma y build de PR #33 |
+| GitHub Flow | Implementado | PR #33 fusionado; seis ramas anteriores eliminadas; `main` es la rama de referencia |
+| GitHub Issues | Seguimiento activo | 26 en total: 17 cerrados y nueve abiertos |
+| Evidencias de Stitch | Documentadas | Cuatro capturas originales; la captura adicional de Detalle se omitió por decisión registrada en #12 |
+| Video grupal | No acreditado en repositorio | Matriz y guion disponibles; no se afirma grabación ni publicación |
+
+### Pendientes antes de nuevas integraciones
+
+1. Comprobar visualmente las resoluciones de 320 y 375 px; cerrar [#32](https://github.com/JuanEstebanLT/web-design-adopme/issues/32) únicamente con evidencia suficiente.
+2. Revisar `npm audit` antes de una futura publicación: Codex reportó cuatro vulnerabilidades moderadas en la instalación de noviembre y no hay constancia de corrección o auditoría posterior.
+3. Añadir evidencia de video solo si existe un enlace o grabación real del equipo.
+
+**Decisión vigente:** no iniciar todavía la integración real con Supabase, las migraciones Prisma, la autenticación ni el despliegue en Vercel.
 
 ## Hoja de ruta
 
 1. **Inicialización y entrega académica:** base ejecutable, documentación, prototipos, gestión y evidencia.
-2. **Fundamentos de frontend:** sistema de componentes, estados de carga/error y accesibilidad ampliada.
+2. **Fundamentos de frontend:** rediseño Stitch integrado; pendiente de revisión móvil, ampliación de accesibilidad y estados de carga/error.
 3. **Integración backend:** proyecto Supabase, RLS, autenticación y acceso de servidor Prisma.
 4. **Funcionalidades de adopción:** solicitudes, seguimiento y gestión de publicaciones.
 5. **Validación y despliegue:** pruebas, datos de demostración controlados, Vercel y revisión final.
@@ -700,7 +718,7 @@ Solo la primera etapa tiene fecha académica definida. No se inventan fechas par
 
 ## Evidencias académicas
 
-La matriz detallada, el inventario de pruebas y el guion del video se encuentran en [`docs/evidencias/README.md`](docs/evidencias/README.md). La guía académica original no está versionada en el repositorio; esta auditoría se basa en los 28 requisitos suministrados para el taller.
+La matriz de la **primera entrega de octubre**, el inventario de pruebas y el guion del video se encuentran en [`docs/evidencias/README.md`](docs/evidencias/README.md). Es una evidencia académica histórica, no un reporte en tiempo real del tablero de GitHub. La guía original no está versionada en el repositorio; se conservan los 28 requisitos comunicados.
 
 | # | Requisito académico | Estado | Evidencia principal |
 |---:|---|---|---|
@@ -720,8 +738,8 @@ La matriz detallada, el inventario de pruebas y el guion del video se encuentran
 | 14 | Diagrama entidad-relación | Cumplido | Mermaid ER |
 | 15 | Mínimo cuatro entidades/recursos | Cumplido | Perfil, Refugio, Mascota y Solicitud |
 | 16 | API y operaciones previstas | Cumplido | Contratos, métodos y datos |
-| 17 | Tres vistas principales | Parcial | Tres rutas React; falta captura Stitch específica de Detalle |
-| 18 | Prototipos y evidencias gráficas | Parcial | Cuatro capturas originales; Detalle pendiente |
+| 17 | Tres vistas principales | Parcial en evidencia Stitch | Tres rutas React implementadas; sin captura original independiente de Detalle |
+| 18 | Prototipos y evidencias gráficas | Parcial en evidencia Stitch | Cuatro capturas originales; se aceptó omitir la imagen adicional de Detalle (#12) |
 | 19 | Flujo de navegación | Cumplido | Mermaid y React Router |
 | 20 | Estructura inicial del código | Cumplido | Árbol modular real |
 | 21 | React + Vite ejecutable | Cumplido | Scripts locales y CI |
@@ -731,7 +749,7 @@ La matriz detallada, el inventario de pruebas y el guion del video se encuentran
 | 25 | GitHub Flow | Cumplido | Issues, ramas, PR y validaciones |
 | 26 | Ramas y pull requests | Cumplido | Historial real de PR |
 | 27 | Organización colaborativa | Cumplido | Project, labels y milestones; sin asignaciones |
-| 28 | Evidencias para video grupal | Parcial | Matriz y guion listos; video no grabado |
+| 28 | Evidencias para video grupal | Parcial | Matriz y guion disponibles; grabación no acreditada en el repositorio |
 
 ## Enlaces y referencias
 
@@ -742,6 +760,7 @@ La matriz detallada, el inventario de pruebas y el guion del video se encuentran
 - [Issues de Adopme](https://github.com/JuanEstebanLT/web-design-adopme/issues)
 - [Pull request inicial #24](https://github.com/JuanEstebanLT/web-design-adopme/pull/24)
 - [Pull request de cierre académico #30](https://github.com/JuanEstebanLT/web-design-adopme/pull/30)
+- [Pull request del rediseño frontend #33](https://github.com/JuanEstebanLT/web-design-adopme/pull/33)
 - [Workflow de validación continua](https://github.com/JuanEstebanLT/web-design-adopme/actions/workflows/ci.yml)
 - [Prototipo de Adopme en Google Stitch](https://stitch.withgoogle.com/preview/5253726196803477313?node-id=7a2c06889ff04ac1b8823a52d7e9267c)
 - [Repositorio documental de referencia Móviles G7](https://github.com/JuanEstebanLT/proyectointegradormoviles-g7)
@@ -757,7 +776,7 @@ La matriz detallada, el inventario de pruebas y el guion del video se encuentran
 - Vercel Inc. (2026). *Vercel documentation*. https://vercel.com/docs
 - Vite Contributors. (2026). *Vite documentation*. https://vite.dev/guide/
 
-Consultas técnicas verificadas el 24 de octubre de 2026. Las versiones exactas instaladas se conservan en `package-lock.json`.
+Referencias técnicas documentadas en octubre de 2026. El estado de código, frontend e issues se revisó el 12 de noviembre de 2026. Las versiones exactas de dependencias se conservan en `package-lock.json`.
 
 ---
 
