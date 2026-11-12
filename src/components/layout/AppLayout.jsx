@@ -11,17 +11,22 @@ export default function AppLayout() {
   const [menuOpen, setMenuOpen] = useState(false)
   const location = useLocation()
   useEffect(() => {
-    if (location.hash) requestAnimationFrame(() => document.getElementById(location.hash.slice(1))?.scrollIntoView())
-    else window.scrollTo({ top: 0 })
-  }, [location])
+    if (location.hash) {
+      const frame = requestAnimationFrame(() => {
+        document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView()
+      })
+      return () => cancelAnimationFrame(frame)
+    }
+    window.scrollTo({ top: 0 })
+  }, [location.pathname, location.hash])
   return <div className="app-shell">
     <header className="site-header">
       <Link className="brand" to="/" aria-label="Adopme, ir al inicio"><img src="/images/adopme-mark.svg" alt="" width="38" height="38" /><span>AdopMe</span></Link>
-      <button className="menu-toggle" type="button" aria-expanded={menuOpen} aria-controls="main-navigation" aria-label="Abrir menú" onClick={() => setMenuOpen(!menuOpen)}><span /><span /><span /></button>
+      <button className="menu-toggle" type="button" aria-expanded={menuOpen} aria-controls="main-navigation" aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'} onClick={() => setMenuOpen(!menuOpen)}><span /><span /><span /></button>
       <nav className={`main-nav${menuOpen ? ' is-open' : ''}`} id="main-navigation" aria-label="Navegación principal">
         {navItems.map((item) => item.to.includes('#') ? <Link key={item.label} to={item.to} onClick={() => setMenuOpen(false)}>{item.label}</Link> : <NavLink key={item.label} to={item.to} end={item.end} onClick={() => setMenuOpen(false)}>{item.label}</NavLink>)}
       </nav>
-      <div className="header-actions"><button className="login-link" type="button" disabled title="Autenticación planificada para una entrega futura">Iniciar sesión <span className="sr-only">(función futura)</span></button><NavLink className="button button--small" to="/mascotas">Quiero adoptar</NavLink></div>
+      <div className="header-actions"><button className="login-link" type="button" disabled title="Autenticación planificada para una entrega futura">Iniciar sesión <span className="sr-only">(función futura)</span></button><NavLink className="button button--small" to="/mascotas" onClick={() => setMenuOpen(false)}>Quiero adoptar</NavLink></div>
     </header>
     <main><Outlet /></main>
     <footer className="site-footer" id="nosotros">
