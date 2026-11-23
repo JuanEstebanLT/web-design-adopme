@@ -1,8 +1,11 @@
+
 import { Route, Routes } from 'react-router-dom'
 import AppLayout from '../components/layout/AppLayout.jsx'
 import HomePage from '../pages/HomePage.jsx'
 import PetCatalogPage from '../pages/PetCatalogPage.jsx'
 import PetDetailPage from '../pages/PetDetailPage.jsx'
+import RegisterPage from '../pages/RegisterPage.jsx'
+import LoginPage from '../pages/LoginPage.jsx'
 import NotFoundPage from '../pages/NotFoundPage.jsx'
 
 export default function App() {
@@ -12,6 +15,8 @@ export default function App() {
         <Route index element={<HomePage />} />
         <Route path="mascotas" element={<PetCatalogPage />} />
         <Route path="mascotas/:petId" element={<PetDetailPage />} />
+        <Route path="registro" element={<RegisterPage />} />
+        <Route path="login" element={<LoginPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>

@@ -26,6 +26,7 @@ export default function PetDetailPage() {
         </div>
 
         <article className="detail__content">
+          <span className="demo-label">Perfil demostrativo</span>
           <p className="eyebrow">{pet.speciesLabel} en adopción</p>
           <h1>{pet.name}</h1>
           <p className="detail__lead">{pet.summary}</p>
@@ -46,6 +47,22 @@ export default function PetDetailPage() {
             <p>{pet.story}</p>
           </div>
 
+          <section className="adoption-preview" aria-labelledby="adoption-preview-title">
+            <div>
+              <p className="eyebrow">Próxima funcionalidad</p>
+              <h2 id="adoption-preview-title">Solicitud de adopción</h2>
+              <p>
+                Cuando integremos la autenticación, aquí podrás contar por qué deseas adoptar,
+                describir tu vivienda e indicar si convives con otras mascotas.
+              </p>
+            </div>
+            <ul>
+              <li>Requerirá una cuenta de adoptante.</li>
+              <li>El refugio revisará la información.</li>
+              <li>Enviar una solicitud no garantizará su aprobación.</li>
+            </ul>
+          </section>
+
           <aside className="shelter-card">
             <div>
               <p className="eyebrow">Refugio responsable</p>
@@ -56,7 +73,7 @@ export default function PetDetailPage() {
               <button className="button" type="button" disabled title="Disponible en una entrega futura">
                 Solicitar adopción
               </button>
-              <small>El formulario de solicitud está planificado para una entrega posterior.</small>
+              <small>Disponible después de integrar autenticación y persistencia.</small>
             </div>
           </aside>
         </article>

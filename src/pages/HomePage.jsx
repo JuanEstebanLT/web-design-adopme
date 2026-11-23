@@ -20,6 +20,25 @@ const steps = [
   },
 ]
 
+const frequentlyAskedQuestions = [
+  {
+    question: '¿Ver el catálogo requiere una cuenta?',
+    answer: 'No. El catálogo y los perfiles de las mascotas seguirán siendo públicos. La cuenta se utilizará más adelante para gestionar solicitudes.',
+  },
+  {
+    question: '¿La adopción se aprueba inmediatamente?',
+    answer: 'No. Cada refugio revisará la solicitud, conversará con la persona interesada y confirmará que el hogar sea adecuado para la mascota.',
+  },
+  {
+    question: '¿Los perfiles actuales corresponden a adopciones reales?',
+    answer: 'Todavía no. Los datos actuales son demostrativos y sirven para construir y probar el frontend de Adopme.',
+  },
+  {
+    question: '¿Qué debo preparar antes de adoptar?',
+    answer: 'Tiempo, presupuesto para cuidados veterinarios y alimentación, un espacio seguro y el compromiso de acompañar toda la vida de la mascota.',
+  },
+]
+
 export default function HomePage() {
   return (
     <>
@@ -74,6 +93,7 @@ export default function HomePage() {
         <div className="pet-grid">
           {pets.slice(0, 3).map((pet) => <PetCard key={pet.id} pet={pet} />)}
         </div>
+        <p className="section-note">Perfiles demostrativos para validar el diseño y la navegación del proyecto.</p>
       </section>
 
       <section className="section process" id="proceso" aria-labelledby="process-title">
@@ -94,6 +114,22 @@ export default function HomePage() {
             </li>
           ))}
         </ol>
+      </section>
+
+      <section className="section faq" aria-labelledby="faq-title">
+        <div className="faq__intro">
+          <p className="eyebrow">Antes de dar el paso</p>
+          <h2 id="faq-title">Preguntas frecuentes sobre adopción</h2>
+          <p>Respuestas sencillas para comprender el alcance actual de Adopme y tomar decisiones responsables.</p>
+        </div>
+        <div className="faq__list">
+          {frequentlyAskedQuestions.map((item) => (
+            <details key={item.question}>
+              <summary>{item.question}</summary>
+              <p>{item.answer}</p>
+            </details>
+          ))}
+        </div>
       </section>
 
       <section className="section cta">

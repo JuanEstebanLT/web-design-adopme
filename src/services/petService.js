@@ -1,5 +1,6 @@
 import { pets as demoPets, getPetById as getDemoPetById } from '../features/pets/data/pets.js'
 import { supabase } from '../lib/supabase.js'
+import { mapPetFromDatabase } from '../features/pets/utils/mapPetFromDatabase.js'
 
 export async function listAvailablePets() {
   if (!supabase) return { data: demoPets, source: 'demo', error: null }
@@ -10,7 +11,7 @@ export async function listAvailablePets() {
     .eq('status', 'AVAILABLE')
     .order('published_at', { ascending: false })
 
-  return { data, source: 'supabase', error }
+  return { data: data?.map(mapPetFromDatabase) ?? [], source: 'supabase', error }
 }
 
 export async function getPet(petId) {
@@ -22,5 +23,5 @@ export async function getPet(petId) {
     .eq('id', petId)
     .single()
 
-  return { data, source: 'supabase', error }
+  return { data: data ? mapPetFromDatabase(data) : null, source: 'supabase', error }
 }
