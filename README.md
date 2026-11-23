@@ -511,13 +511,16 @@ Abrir la URL local que imprime Vite, normalmente `http://localhost:5173`.
 
 ```powershell
 npm run lint
-$env:DATABASE_URL='postgresql://postgres:postgres@localhost:5432/adopme'
 npm run prisma:validate
 npm run build
+npm audit
+npm audit --omit=dev
 npm run preview
 ```
 
-La URL de validación del ejemplo no establece conexión durante `prisma validate` y no representa una credencial real. Para generar el cliente o ejecutar migraciones se requiere una base autorizada.
+`prisma validate` comprueba el esquema sin conectarse a una base de datos y, por tanto, no requiere `DATABASE_URL`. Los comandos que acceden a PostgreSQL, como `prisma db *` o `prisma migrate *`, siguen requiriendo una URL válida y una base autorizada.
+
+El `override` de `effect` mantiene Prisma 7.10.1 y sustituye únicamente su dependencia transitiva vulnerable 3.20.0 por la versión corregida 3.22.1. Debe retirarse cuando una versión estable de Prisma 7 incorpore esa corrección directamente.
 
 ### Variables de entorno
 
@@ -701,7 +704,7 @@ Las responsabilidades concretas se definirán después de incorporar colaborador
 ### Pendientes antes de nuevas integraciones
 
 1. Comprobar visualmente las resoluciones de 320 y 375 px; cerrar [#32](https://github.com/JuanEstebanLT/web-design-adopme/issues/32) únicamente con evidencia suficiente.
-2. Revisar `npm audit` antes de una futura publicación: Codex reportó cuatro vulnerabilidades moderadas en la instalación de noviembre y no hay constancia de corrección o auditoría posterior.
+2. Mantener `npm audit` en cada cambio de dependencias. La auditoría del 23 de noviembre de 2026 finalizó sin vulnerabilidades tanto para el árbol completo como con `--omit=dev`.
 3. Añadir evidencia de video solo si existe un enlace o grabación real del equipo.
 
 **Decisión vigente:** no iniciar todavía la integración real con Supabase, las migraciones Prisma, la autenticación ni el despliegue en Vercel.
