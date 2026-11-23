@@ -13,8 +13,6 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    env:
-      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/adopme
     steps:
       - name: Obtener código
         uses: actions/checkout@v7
@@ -33,6 +31,12 @@ jobs:
 
       - name: Validar esquema Prisma
         run: npm run prisma:validate
+
+      - name: Auditar dependencias
+        run: npm audit
+
+      - name: Auditar dependencias de producción
+        run: npm audit --omit=dev
 
       - name: Compilar aplicación
         run: npm run build
